@@ -1,0 +1,19 @@
+version: '2'
+services: 
+
+  eventposter:
+    build: ./eventposter
+    volumes: 
+        - ./eventposter:/go/src/github.com/jetbasrawi/app
+    environment:
+      EVENTSTORE_PORT: 2113
+    links:
+      - eventstore
+  eventstore:
+    build: ./eventstore
+    ports:  
+      - "2113:2113"
+      - "1113:1113"
+  # volumes:  
+  #    - ./eventstore/data/db:/data/db
+  #    - ./eventstore/data/logs:/data/logs  
