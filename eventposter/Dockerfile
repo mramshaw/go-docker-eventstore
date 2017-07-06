@@ -1,7 +1,7 @@
 FROM golang:1.6-alpine
 
-RUN apk --update add --no-cache git nodejs 
-RUN npm install --global gulp-cli
+RUN apk --update add --no-cache git nodejs \
+&& npm install --global gulp-cli
 
 ENV GOPATH=/go GOBIN=$GOPATH/bin PATH=$PATH:/go/bin
 
