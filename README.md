@@ -1,4 +1,4 @@
-#go-docker-eventstore
+# go-docker-eventstore
 
 Example writing events to EventStore with Go.
 
@@ -25,4 +25,3 @@ Navigate back to the application root directory and execute the command
 Eventstore will start and log to the console.
 
 Gulp will compile and run the application. The application will insert 10,000 events into EventStore.
-
