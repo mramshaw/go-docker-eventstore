@@ -18,10 +18,14 @@ type event struct {
 
 type events []*event
 
-const someEventType = "some-event-type"
+const (
+	someEventType = "some-event-type"
+	numberEvents  = 10000
+)
 
 // newUUID generates a random UUID according to RFC 4122
 func newUUID() (string, error) {
+
 	uuid := make([]byte, 16)
 	n, err := io.ReadFull(rand.Reader, uuid)
 	if n != len(uuid) || err != nil {
@@ -37,7 +41,7 @@ func newUUID() (string, error) {
 func main() {
 
 	count := 1
-	for count < 10000 {
+	for count < numberEvents {
 
 		data := fmt.Sprintf("{ value : %v }", count)
 		uuid, _ := newUUID()
@@ -59,4 +63,5 @@ func main() {
 
 		count++
 	}
+	log.Printf("Have now created %d events\n", numberEvents)
 }
