@@ -1,10 +1,14 @@
 FROM ubuntu:14.04.2
-MAINTAINER Jet Basrawi <anewexplorer@gmail.com>
 
 ENV ES_VERSION 3.5.0
 
-ADD http://download.geteventstore.com/binaries/EventStore-OSS-Ubuntu-14.04-v$ES_VERSION.tar.gz /tmp/
-RUN tar xfz /tmp/EventStore-OSS-Ubuntu-14.04-v$ES_VERSION.tar.gz -C /opt
+RUN DEBIAN_FRONTEND=noninteractive apt-get -y install wget \
+&& cd /opt \
+&& wget --no-check-certificate https://download.geteventstore.com/binaries/EventStore-OSS-Ubuntu-14.04-v$ES_VERSION.tar.gz \
+&& tar xzf EventStore-OSS-Ubuntu-14.04-v$ES_VERSION.tar.gz \
+&& chown -R eventstore:eventstore EventStore-OSS-Ubuntu-14.04-v$ES_VERSION \
+&& rm EventStore-OSS-Ubuntu-14.04-v$ES_VERSION.tar.gz \
+&& cd /
 
 EXPOSE 2113
 EXPOSE 1113
