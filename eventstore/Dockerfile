@@ -2,13 +2,8 @@ FROM ubuntu:14.04.2
 
 ENV ES_VERSION 3.5.0
 
-RUN DEBIAN_FRONTEND=noninteractive apt-get -y install wget \
-&& cd /opt \
-&& wget --no-check-certificate https://download.geteventstore.com/binaries/EventStore-OSS-Ubuntu-14.04-v$ES_VERSION.tar.gz \
-&& tar xzf EventStore-OSS-Ubuntu-14.04-v$ES_VERSION.tar.gz \
-&& chown -R eventstore:eventstore EventStore-OSS-Ubuntu-14.04-v$ES_VERSION \
-&& rm EventStore-OSS-Ubuntu-14.04-v$ES_VERSION.tar.gz \
-&& cd /
+# EventStore archive needs to have been downloaded to 'data' directory
+ADD data/EventStore-OSS-Ubuntu-14.04-v$ES_VERSION.tar.gz /opt/
 
 EXPOSE 2113
 EXPOSE 1113
