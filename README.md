@@ -4,7 +4,7 @@ An example of writing events to EventStore with Go.
 
 The application and the EventStore instance run on Docker.
 
-The application is provisioned with Docker Compose.
+The application is provisioned with __docker-compose__.
 
 The application is compiled and run with Gulp on the application container.
 
@@ -32,7 +32,7 @@ The messages logged to the console show as:
 
 	eventposter_1  | 2017/07/06 21:05:22 201 Created
 
-The 201 is an HTTP Status Code (Created) and not an event counter!
+The "201 Created" message is an HTTP Status Code, not an event counter!
 
 Things can be terminated with __Ctrl-C__ once the following message is displayed:
 
@@ -57,6 +57,8 @@ Image | Size
 ----- | ----
 godockereventstore_eventposter | 339MB
 godockereventstore_eventstore | 286MB
+
+[Some Dockerfile tweaking reduced the eventstore image from 427 to 293 MB.]
 
 ## To run
 
