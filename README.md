@@ -56,7 +56,7 @@ The Docker images produced are:
 Image | Size
 ----- | ----
 godockereventstore_eventposter | 339MB
-godockereventstore_eventstore | 293MB
+godockereventstore_eventstore | 286MB
 
 ## To run
 
