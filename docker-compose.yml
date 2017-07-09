@@ -4,7 +4,7 @@ services:
   eventposter:
     build: ./eventposter
     volumes: 
-        - ./eventposter:/go/src/github.com/jetbasrawi/app
+        - ./eventposter:/github.com/mramshaw/go-docker-eventstore/poster
     links:
       - eventstore
   eventstore:

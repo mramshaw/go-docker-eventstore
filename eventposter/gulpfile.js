@@ -1,8 +1,8 @@
-var gulp = require('gulp');
-var child = require('child_process');
-var notifier   = require('node-notifier');
-var util       = require('gulp-util');
-var server = null;
+var gulp     = require('gulp');
+var child    = require('child_process');
+var notifier = require('node-notifier');
+var util     = require('gulp-util');
+var server   = null;
 
 //Runs the file watching and then calls init
 gulp.task('default', ['watch', 'init']);
@@ -16,8 +16,8 @@ gulp.task('watch', function() {
   gulp.watch('./**/*.html', ['build','run']);
 });
 
-//Call go install which will compile the go code
-//and install it in the GOBIN directory
+//Call 'go install' which will compile the go code
+//  and install it in the GOBIN directory
 gulp.task('build', function() {
   var build = child.spawnSync('go', ['install']);
   if (build.stderr.length) {
@@ -41,7 +41,7 @@ gulp.task('build', function() {
 gulp.task('run', function() {
   if (server)
     server.kill();
-  server = child.spawn('app');
+  server = child.spawn('poster');
   server.stderr.on('data', function(data) {
     process.stdout.write(data.toString());
   });

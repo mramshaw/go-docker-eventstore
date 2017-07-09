@@ -1,13 +1,14 @@
 FROM golang:1.6-alpine
 
 RUN apk --update add --no-cache git nodejs \
-&& npm install --global gulp-cli
+ && npm install --global gulp-cli
+
+USER nobody
 
 ENV GOPATH=/go GOBIN=$GOPATH/bin PATH=$PATH:/go/bin
 
-VOLUME ["/go/src/github.com/jetbasrawi/app", "/go/pkg", "/go/bin"]
+VOLUME ["/github.com/mramshaw/go-docker-eventstore/poster", "/go/pkg", "/go/bin"]
 
-WORKDIR /go/src/github.com/jetbasrawi/app
+WORKDIR  /github.com/mramshaw/go-docker-eventstore/poster
 
 CMD ["gulp"]
-
