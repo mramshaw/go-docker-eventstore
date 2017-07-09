@@ -58,7 +58,7 @@ Image | Size
 godockereventstore_eventposter | 339MB
 godockereventstore_eventstore | 286MB
 
-[Some Dockerfile tweaking reduced the eventstore image from 427 to 293 MB.]
+[Some Dockerfile tweaking reduced the eventstore image from 427 to 286 MB.]
 
 ## To run
 
